@@ -1,5 +1,6 @@
 class KindsController < ApplicationController
   before_action :set_kind, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /kinds
   # GET /kinds.json
