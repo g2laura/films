@@ -1,4 +1,7 @@
 Films::Application.routes.draw do
+  resources :movies
+
   devise_for :users
- # root 'home#index'
+ 
+  root 'movies#index'
 end

@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131226035318) do
+ActiveRecord::Schema.define(version: 20131226045252) do
+
+  create_table "movies", force: true do |t|
+    t.string   "title"
+    t.integer  "year"
+    t.integer  "box"
+    t.string   "format"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
