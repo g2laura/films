@@ -3,24 +3,24 @@
 <table>
   <thead>
     <tr>
-      <th>Movie</th>
       <th>Name</th>
       <th>Image</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Job</th>
+      <th style="width: 10%"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @people.each do |person| %>
       <tr>
-        <td><%= person.movie %></td>
         <td><%= person.name %></td>
         <td><%= person.image %></td>
-        <td><%= link_to 'Show', person %></td>
-        <td><%= link_to 'Edit', edit_person_path(person) %></td>
-        <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= person.job %></td>
+        <td>
+          <%= link_to 'Show', person %> | 
+          <%= link_to 'Edit', edit_person_path(person) %> | 
+          <%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+          <%= link_to 'Películas', person_movies_path(person) %>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,5 @@
 
 <br>
 
-<%= link_to 'New Person', new_person_path %>
+<%= link_to 'New Person', new_person_path %><br>
+<%= link_to 'Lista de Películas', movies_path %>

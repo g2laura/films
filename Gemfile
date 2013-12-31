@@ -53,3 +53,12 @@ end
 group :test do
   gem 'webmock', '~> 1.14.0'
 end
+
+# Pagination
+gem 'kaminari'
+
+# Export to PDF
+gem 'prawn', '1.0.0.rc2'
+
+# Excel import/export
+gem 'nokogiri'

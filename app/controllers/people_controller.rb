@@ -1,11 +1,15 @@
 class PeopleController < ApplicationController
-  before_action :set_person, only: [:show, :edit, :update, :destroy]
+  before_action :set_person, only: [:show, :edit, :update, :destroy, :movies]
   before_filter :authenticate_user!
 
   # GET /people
   # GET /people.json
   def index
     @people = Person.all
+  end
+
+  def movies
+    @movies = @person.movies
   end
 
   # GET /people/1
@@ -70,6 +74,6 @@ class PeopleController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
-      params.require(:person).permit(:movie_id, :name, :image)
+      params.require(:person).permit(:name, :image, :job)
     end
 end

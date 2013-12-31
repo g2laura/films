@@ -1,3 +1,9 @@
 class Person < ActiveRecord::Base
-  belongs_to :movie
+  has_and_belongs_to_many :movies
+
+  ACTOR    = 'actor'
+  DIRECTOR = 'director'
+
+  scope :actors,             -> { where(job: ACTOR) }
+  scope :directors,          -> { where(job: DIRECTOR) }
 end

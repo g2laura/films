@@ -1,11 +1,15 @@
 class KindsController < ApplicationController
-  before_action :set_kind, only: [:show, :edit, :update, :destroy]
+  before_action :set_kind, only: [:show, :edit, :update, :destroy, :movies]
   before_filter :authenticate_user!
 
   # GET /kinds
   # GET /kinds.json
   def index
     @kinds = Kind.all
+  end
+
+  def movies
+    @movies = @kind.movies
   end
 
   # GET /kinds/1
@@ -70,6 +74,6 @@ class KindsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def kind_params
-      params.require(:kind).permit(:movie_id, :name)
+      params.require(:kind).permit(:name)
     end
 end

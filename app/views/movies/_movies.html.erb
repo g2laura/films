@@ -1,0 +1,66 @@
+<h1>Listing movies</h1>
+
+<%= form_tag movies_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :title, params[:title], placeholder: "Title" %>
+    <%= number_field_tag :year, params[:year], placeholder: "Year" %>
+    <%= number_field_tag :box, params[:box], placeholder: "Box" %>
+    <%= submit_tag "Search" %>
+  </p>
+<% end %>
+
+<table class="tablesorter tablesorter-default table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Box</th>
+      <th>Format</th>
+      <th>Position</th>
+      <th>Kind</th>
+      <th>Actors</th>
+      <th>Directors</th>
+      <th style="width: 10%"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% movies.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.year %></td>
+        <td><%= movie.box %></td>
+        <td><%= movie.format %></td>
+        <td><%= movie.position %></td>
+        <td><%= movie.kinds.map{|k| k.name}.join(", ") %></td>
+        <td><%= movie.people.actors.map{|a| a.name}.join(", ") %></td>
+        <td><%= movie.people.directors.map{|d| d.name}.join(", ") %></td>
+        <td>
+          <%= link_to 'Show', movie %> | <%= link_to 'Edit', edit_movie_path(movie) %> | 
+          <%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div id="pager" class="pager">
+  <form>
+    <%= image_tag "first.png", class: "first" %>
+    <%= image_tag "prev.png", class: "prev" %>
+    <input type="text" class="pagedisplay"/>
+    <%= image_tag "next.png", class: "next" %>
+    <%= image_tag "last.png", class: "last" %>
+    <select class="pagesize">
+      <option value="10">10 por página</option>
+      <option value="15">15 por página</option>
+      <option value="20">20 por página</option>
+    </select>
+  </form>
+</div>
+
+<br>
+
+<%= link_to 'New Movie', new_movie_path %><br>
+<%= link_to 'Lista de Géneros', kinds_path %><br>
+<%= link_to 'Lista de Actores y Directores', people_path %>

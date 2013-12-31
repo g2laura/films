@@ -10,12 +10,10 @@ FactoryGirl.define do
   end
 
   factory :kind do
-    movie  movie
     name   "drama"
   end
 
   factory :person do
-    movie  movie
     name  "actor"
     image "imagen"
   end

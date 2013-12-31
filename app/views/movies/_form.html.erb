@@ -31,6 +31,14 @@
     <%= f.label :position %><br>
     <%= f.number_field :position %>
   </div>
+  <div class="field">
+    <%= f.label "Kind" %><br>
+    <%= f.select :kind_ids, Kind.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %>
+  </div>
+  <div class="field">
+    <%= f.label "Actor, Director" %><br>
+    <%= f.select :person_ids, Person.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

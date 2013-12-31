@@ -5,7 +5,10 @@ class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
   def index
-    @movies = Movie.all
+    title = params["title"]
+    year = params["year"]
+    box = params["box"]
+    @movies = Movie.search(title, year, box)
   end
 
   # GET /movies/1
@@ -70,6 +73,6 @@ class MoviesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def movie_params
-      params.require(:movie).permit(:title, :year, :box, :format, :position)
+      params.require(:movie).permit(:title, :year, :box, :format, :position, :director_id, kind_ids: [], person_ids: [])
     end
 end

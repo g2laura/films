@@ -12,4 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require_tree .
+
+$(document).ready(function() { 
+  $("#movie_kind_ids").select2();
+  $("#movie_person_ids").select2();
+  $('table').tablesorter({
+	widgets        : ['zebra', 'columns'],
+	usNumberFormat : false,
+	sortReset      : true,
+	sortRestart    : true
+  });
+  $('table').tablesorterPager({container: $("#pager")}); 
+});

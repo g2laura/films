@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :movie %><br>
-    <%= f.text_field :movie %>
-  </div>
-  <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :image %><br>
     <%= f.text_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :job %><br>
+    <%= select_tag "person[job]", jobs_for_select %>
   </div>
   <div class="actions">
     <%= f.submit %>
