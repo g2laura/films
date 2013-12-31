@@ -2,6 +2,8 @@ class Movie < ActiveRecord::Base
   has_and_belongs_to_many :kinds
   has_and_belongs_to_many :people
 
+  mount_uploader :image, ImageUploader
+
   def self.search(title, year, box)
     if title.blank? && year.blank? && box.blank?
       return Movie.all

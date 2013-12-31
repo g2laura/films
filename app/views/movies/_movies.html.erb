@@ -32,9 +32,9 @@
         <td><%= movie.box %></td>
         <td><%= movie.format %></td>
         <td><%= movie.position %></td>
-        <td><%= movie.kinds.map{|k| k.name}.join(", ") %></td>
-        <td><%= movie.people.actors.map{|a| a.name}.join(", ") %></td>
-        <td><%= movie.people.directors.map{|d| d.name}.join(", ") %></td>
+        <td><%= raw(movie.kinds.map{|k| raw(link_to(k.name, kind_path(k.id))) }.join(", ")) %></td>
+        <td><%= raw(movie.people.actors.map{|k| raw(link_to(k.name, person_path(k.id))) }.join(", ")) %></td>
+        <td><%= raw(movie.people.directors.map{|k| raw(link_to(k.name, person_path(k.id))) }.join(", ")) %></td>
         <td>
           <%= link_to 'Show', movie %> | <%= link_to 'Edit', edit_movie_path(movie) %> | 
           <%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %>

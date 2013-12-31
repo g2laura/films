@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= image_tag @person.image.to_s, style: "max-width: 150px" %>
+<br>
 <p>
   <strong>Name:</strong>
   <%= @person.name %>
@@ -16,3 +18,5 @@
 </p>
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>
+
+<%= render partial: 'movies/movies', locals: { movies: @person.movies } %> 

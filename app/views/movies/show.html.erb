@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= image_tag @movie.image.to_s, style: "max-width: 150px" %>
+<br>
 <p>
   <strong>Title:</strong>
   <%= @movie.title %>
