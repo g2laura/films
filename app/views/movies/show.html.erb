@@ -25,5 +25,21 @@
   <%= @movie.position %>
 </p>
 
+<p>
+  <strong>Kinds:</strong>
+  <%= @movie.kinds.map{|k| k.name}.join(", ") %>
+</p>
+
+<p>
+  <strong>Actors:</strong>
+  <%= @movie.people.actors.map{|a| a.name}.join(", ") %>
+</p>
+
+<p>
+  <strong>Directors:</strong>
+  <%= @movie.people.directors.map{|d| d.name}.join(", ") %>
+</p>
+
+
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>
