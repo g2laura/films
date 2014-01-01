@@ -1,11 +1,11 @@
 <h1>Listing people</h1>
 
-<table>
+<table class="tablesorter tablesorter-default table table-striped">
   <thead>
     <tr>
       <th>Name</th>
       <th>Job</th>
-      <th style="width: 10%"></th>
+      <th style="width: 15%"></th>
     </tr>
   </thead>
 
@@ -23,6 +23,21 @@
     <% end %>
   </tbody>
 </table>
+
+<div id="pager" class="pager">
+  <form>
+    <%= image_tag "first.png", class: "first" %>
+    <%= image_tag "prev.png", class: "prev" %>
+    <input type="text" class="pagedisplay"/>
+    <%= image_tag "next.png", class: "next" %>
+    <%= image_tag "last.png", class: "last" %>
+    <select class="pagesize">
+      <option value="10">10 por página</option>
+      <option value="15">15 por página</option>
+      <option value="20">20 por página</option>
+    </select>
+  </form>
+</div>
 
 <br>
 

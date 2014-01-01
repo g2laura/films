@@ -23,6 +23,20 @@
   </tbody>
 </table>
 
+<div id="pager" class="pager">
+  <form>
+    <%= image_tag "first.png", class: "first" %>
+    <%= image_tag "prev.png", class: "prev" %>
+    <input type="text" class="pagedisplay"/>
+    <%= image_tag "next.png", class: "next" %>
+    <%= image_tag "last.png", class: "last" %>
+    <select class="pagesize">
+      <option value="10">10 por página</option>
+      <option value="15">15 por página</option>
+      <option value="20">20 por página</option>
+    </select>
+  </form>
+</div>
 <br>
 
 <%= link_to 'New Kind', new_kind_path %><br>
