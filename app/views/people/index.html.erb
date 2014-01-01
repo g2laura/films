@@ -1,5 +1,12 @@
 <h1>Listing people</h1>
 
+<%= form_tag people_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :name, params[:name], placeholder: "Nombre" %>
+    <%= submit_tag "Search" %>
+  </p>
+<% end %>
+
 <table class="tablesorter tablesorter-default table table-striped">
   <thead>
     <tr>

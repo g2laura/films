@@ -5,7 +5,12 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    name = params[:name]
+    unless name.blank?
+      @people = Person.where("name LIKE ? ", "%#{name}%")
+    else
+      @people = Person.all
+    end
   end
 
   def movies
