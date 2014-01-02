@@ -1,19 +1,24 @@
 development:
-  adapter: mysql2
+  adapter: postgresql
+  encoding: unicode
   database: films_development
-  username: root
+  username: film
+  password: film
   pool: 5
   timeout: 5000
 
 test:
-  adapter: mysql2
+  adapter: postgresql
+  encoding: unicode
   database: films_test
-  username: root
+  username: film
+  password: film
   pool: 5
   timeout: 5000
 
 production:
-  adapter: mysql2
+  adapter: postgresql
+  encoding: unicode
   database: films_production
   username: films_production
   password: imouto
